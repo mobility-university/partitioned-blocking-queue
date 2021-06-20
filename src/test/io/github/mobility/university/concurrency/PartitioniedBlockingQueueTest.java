@@ -19,13 +19,13 @@ public class PartitioniedBlockingQueueTest {
     @Test()
     public void constructs() {
         // execute & verify
-        assertNotNull(new PartitionedBlockedQueue(1));
+        assertNotNull(new PartitionedBlockingQueue(1));
     }
 
     @Test()
     public void acquiresValue() throws InterruptedException {
         // setup
-        var queue = new PartitionedBlockedQueue<String,String>(1);
+        var queue = new PartitionedBlockingQueue<String,String>(1);
         // execute
         var actual = queue.acquire("key", "value");
         // verify
@@ -35,7 +35,7 @@ public class PartitioniedBlockingQueueTest {
     @Test()
     public void acquiresParallelForDifferentPartitions() throws InterruptedException {
         // setup
-        var queue = new PartitionedBlockedQueue<SpecificHash,String>(2);
+        var queue = new PartitionedBlockingQueue<SpecificHash,String>(2);
 
         assertEquals(queue.acquire(new SpecificHash(0), "first value"), "first value");
         // execute
@@ -47,7 +47,7 @@ public class PartitioniedBlockingQueueTest {
     @Test()
     public void releasesAcquiredPartition() throws InterruptedException {
         // setup
-        var queue = new PartitionedBlockedQueue<String,String>(1);
+        var queue = new PartitionedBlockingQueue<String,String>(1);
         queue.acquire("key", "value");
         // execute & verify
         queue.release("key");
@@ -56,7 +56,7 @@ public class PartitioniedBlockingQueueTest {
     @Test()
     public void acquiresAgainAfterRelease() throws InterruptedException {
         // setup
-        var queue = new PartitionedBlockedQueue<String,String>(1);
+        var queue = new PartitionedBlockingQueue<String,String>(1);
 
         assertEquals(queue.acquire("key", "value"), "value");
         queue.release("key");
@@ -70,7 +70,7 @@ public class PartitioniedBlockingQueueTest {
     @Test()
     public void blocksParallelAcquireToSamePartition() throws InterruptedException{
         // setup
-        var queue = new PartitionedBlockedQueue<String,String>(1);
+        var queue = new PartitionedBlockingQueue<String,String>(1);
         var eaters = Executors.newFixedThreadPool(1);
         assertEquals(queue.acquire("key", "value"), "value");
         var counter = new CountDownLatch(1);
@@ -92,7 +92,7 @@ public class PartitioniedBlockingQueueTest {
     @Test()
     public void providesAllValues() throws InterruptedException{
         // setup
-        var queue = new PartitionedBlockedQueue<String,String>(10);
+        var queue = new PartitionedBlockingQueue<String,String>(10);
         var workers = Executors.newFixedThreadPool(30);
         var numberOfTasks = 1_000;
         var expectedValues = IntStream.range(0, numberOfTasks).boxed().map(task -> String.format("value %s", task)).collect(Collectors.toList());
@@ -122,7 +122,7 @@ public class PartitioniedBlockingQueueTest {
     @Test()
     public void keepsOrder() throws InterruptedException{
         // setup
-        var queue = new PartitionedBlockedQueue<String,String>(1);
+        var queue = new PartitionedBlockingQueue<String,String>(1);
         var workers = Executors.newFixedThreadPool(30);
         var numberOfTasks = 100;
 

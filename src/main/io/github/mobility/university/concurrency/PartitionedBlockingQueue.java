@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
  * @param <Value> the value which should be queued
  */
 @ThreadSafe
-public class PartitionedBlockedQueue<Key, Value> {
+public class PartitionedBlockingQueue<Key, Value> {
     private final int numberOfPartitions;
     private final List<Semaphore> semaphores;
     private final List<Deque<Value>> queues;
