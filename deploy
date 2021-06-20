@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+GPG_TTY=$(tty) mvn deploy
