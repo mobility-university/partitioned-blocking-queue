@@ -4,7 +4,8 @@ a Blocking Queue to be used in a multi threaded environment which keeps the orde
 
 ## Usage
 
-```!java
+```java
+
 @ThreadSafe
 class Processor {
     privage PartitionedBlockingQueue<YourPartitionKey, YourValue> queue;
