@@ -34,3 +34,13 @@ class Processor {
 }
 ```
 
+## Artifact
+
+```xml
+<dependency>
+  <groupId>io.github.mobility-university</groupId>
+  <artifactId>partitioned-blocking-queue</artifactId>
+  <version>0.1</version>
+</dependency>
+```
+
