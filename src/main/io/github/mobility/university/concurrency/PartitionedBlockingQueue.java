@@ -24,7 +24,7 @@ public class PartitionedBlockingQueue<Key, Value> {
     private final List<Semaphore> semaphores;
     private final List<Deque<Value>> queues;
 
-    public PartitionedBlockedQueue(int numberOfPartitions) {
+    public PartitionedBlockingQueue(int numberOfPartitions) {
         assert numberOfPartitions > 0 : "need to have at least a single partition";
 
         this.numberOfPartitions = numberOfPartitions;
