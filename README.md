@@ -1,4 +1,6 @@
-# partitioned-blocking-queue
+[![Build](https://github.com/mobility-university/partitioned-blocking-queue/actions/workflows/maven.yml/badge.svg)](https://github.com/mobility-university/partitioned-blocking-queue/actions/workflows/maven.yml)
+
+# PartitionedBlockingQueue
 
 a Blocking Queue to be used in a multi threaded environment which keeps the order within the partition.
 
