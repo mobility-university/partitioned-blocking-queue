@@ -4,6 +4,10 @@
 
 a Blocking Queue to be used in a multi threaded environment which keeps the order within the partition.
 
+## Motivation
+
+when reading from one and writing to another queue in a multi threaded java programm, then there was no simple solution to achieve this when the data needed to be kept in the order for some partitions.
+
 ## Usage
 
 ```java
@@ -29,7 +33,7 @@ class Processor {
     }
 
     private YourPartitionKey toPartitionKey(YourValue value) {
-        return // your code
+        return null; // your code
     }
 }
 ```
